@@ -8,6 +8,9 @@ en:
         success: "Saved!"
         failure: "There was a problem saving your changes."
   user:
+    registration:
+      heading: "Sign Up for Nevernote"
+      button: "Sign Up"
     flash:
       create:
         success: "Thanks for signing up!"

@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 8 }
   validate :passwords_match
 
+  has_many :notes
+
   private
 
   def passwords_match
