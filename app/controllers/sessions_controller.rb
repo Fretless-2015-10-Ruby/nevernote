@@ -18,5 +18,11 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    if session[:user_id]
+      session[:user_id] = nil
+      redirect_to login_path, notice: t('session.flash.destroy.success')
+    else
+      redirect_to login_path, notice: t('session.flash.destroy.failure')
+    end
   end
 end
