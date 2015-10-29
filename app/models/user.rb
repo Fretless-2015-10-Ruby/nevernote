@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
   validates :password, length: { minimum: 8 }
+  validates :username, presence: true, uniqueness: true
   validate :passwords_match
 
   has_many :notes
