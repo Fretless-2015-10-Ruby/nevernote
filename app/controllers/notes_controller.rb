@@ -10,7 +10,7 @@ class NotesController < ApplicationController
   end
 
   def create
-    @note = Note.new note_params
+    @note = current_user.notes.new note_params
     if @note.save
       redirect_to edit_note_path(@note), notice: t('note.flash.create.success')
     else
@@ -31,7 +31,7 @@ class NotesController < ApplicationController
   private
 
   def find_note
-    @note = Note.find params[:id]
+    @note = current_user.notes.find params[:id]
   end
 
   def note_params
