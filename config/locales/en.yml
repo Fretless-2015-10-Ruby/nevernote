@@ -15,3 +15,11 @@ en:
       create:
         success: "Thanks for signing up!"
         failure: "There was a problem with your registration."
+  session:
+    new:
+      heading: "Sign In"
+      button: "Sign In"
+    flash:
+      create:
+        success: "Welcome!"
+        failure: "There was a problem logging in with those credentials."
