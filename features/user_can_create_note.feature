@@ -5,5 +5,5 @@ Feature: User can create note
     And I enter a title
     And I enter some body text
     And I click the "Create Note" button
-    Then I should see "Saved!"
+    Then I should see "Your note has been created!"
     # And I should see my note in the list

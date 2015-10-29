@@ -11,18 +11,18 @@ class NotesController < ApplicationController
   def create
     @note = Note.new note_params
     if @note.save
-      redirect_to edit_note_path(@note), notice: 'Saved!'
+      redirect_to edit_note_path(@note), notice: t('note.flash.create.success')
     else
-      flash.now[:alert] = 'Oops! There was a problem saving that note.'
+      flash.now[:alert] = t('note.flash.create.failure')
       render :new
     end
   end
 
   def update
     if @note.update note_params
-      redirect_to edit_note_path(@note), notice: 'Saved!'
+      redirect_to edit_note_path(@note), notice: t('note.flash.update.success')
     else
-      flash.now[:alert] = 'Oops! There was a problem saving that note.'
+      flash.now[:alert] = t('note.flash.update.failure')
       render :edit
     end
   end
