@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '~> 3.3.5.1'
+gem 'font-awesome-sass'
 
 group :development, :test do
   gem 'pry-rails'
