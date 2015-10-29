@@ -20,6 +20,7 @@ end
 
 group :development do
   gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'spring'
 end
 
@@ -27,6 +28,8 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'capybara-webkit'
   gem 'database_cleaner'
+  gem 'shoulda-matchers'
+  gem 'rspec-rails'
 end
 
 group :production do
