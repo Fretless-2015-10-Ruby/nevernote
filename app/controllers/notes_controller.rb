@@ -1,4 +1,5 @@
 class NotesController < ApplicationController
+  before_action :authorize_user
   before_action :find_note, only: [:edit, :update]
 
   def new
