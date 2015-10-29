@@ -4,7 +4,7 @@ class CreateNotes < ActiveRecord::Migration
       t.string :title
       t.text :body_html
       t.text :body_text
-      t.string :timestamps
+      t.timestamps
     end
   end
 end
