@@ -8,10 +8,7 @@
 </head>
 <body>
 
-<% flash.each do |msg| %>
-  <%= msg %>
-<% end %>
-
+<%= flash_messages flash %>
 <%= yield %>
 
 </body>
