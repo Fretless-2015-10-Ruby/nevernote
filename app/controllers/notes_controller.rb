@@ -1,9 +1,13 @@
 class NotesController < ApplicationController
   before_action :authorize_user
-  before_action :find_note, only: [:edit, :update]
+  before_action :find_note, only: [:show, :edit, :update, :destroy]
 
   def new
     @note = Note.new
+  end
+
+  def show
+    render :edit
   end
 
   def edit
@@ -11,21 +15,18 @@ class NotesController < ApplicationController
 
   def create
     @note = current_user.notes.new note_params
-    if @note.save
-      redirect_to edit_note_path(@note), notice: t('note.flash.create.success')
-    else
-      flash.now[:alert] = t('note.flash.create.failure')
-      render :new
-    end
+    set_flash_for @note.save
+    render_or_redirect
   end
 
   def update
-    if @note.update note_params
-      redirect_to edit_note_path(@note), notice: t('note.flash.update.success')
-    else
-      flash.now[:alert] = t('note.flash.update.failure')
-      render :edit
-    end
+    set_flash_for @note.update(note_params)
+    render_or_redirect
+  end
+
+  def destroy
+    set_flash_for @note.destroy
+    render_or_redirect
   end
 
   private
@@ -36,5 +37,26 @@ class NotesController < ApplicationController
 
   def note_params
     params.require(:note).permit(:title, :body_html)
+  end
+
+  def set_flash_for(action_result)
+    if action_result
+      flash[:'alert-success'] = t("note.flash.#{action_name}.success")
+    else
+      flash.now[:'alert-danger'] = t("note.flash.#{action_name}.failure")
+    end
+  end
+
+  def render_or_redirect
+    if @note.errors.any?
+      render :edit
+    else
+      redirect_to redirection_path
+    end
+  end
+
+  def redirection_path
+    return @note if @note.persisted?
+    new_note_path
   end
 end

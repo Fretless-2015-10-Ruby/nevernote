@@ -7,6 +7,10 @@ en:
       update:
         success: "Saved!"
         failure: "There was a problem saving your changes."
+      destroy:
+        success: "That note has been deleted."
+        failure: "We were unable to delete that note."
+
   user:
     registration:
       heading: "Sign Up for Nevernote"
