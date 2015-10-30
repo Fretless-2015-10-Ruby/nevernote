@@ -36,7 +36,7 @@
           <% end %>
           <ul id="notes">
             <% current_user.notes.each do |n| %>
-              <li>
+              <li data-url="<%= edit_note_path(n) %>">
                 <div class="note-title">
                   <%= link_to n.title, edit_note_path(n) %>
                 </div>
