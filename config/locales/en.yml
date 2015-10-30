@@ -10,6 +10,9 @@ en:
       destroy:
         success: "That note has been deleted."
         failure: "We were unable to delete that note."
+    placeholder:
+      title: "Title your note"
+      body: "Just start typing..."
 
   user:
     registration:
