@@ -14,6 +14,7 @@ gem 'bootstrap-sass', '~> 3.3.5.1'
 gem 'font-awesome-sass'
 gem 'bootsy'
 gem 'sanitize'
+gem 'rack-cors', require: 'rack/cors'
 
 group :development, :test do
   gem 'pry-rails'

@@ -9,5 +9,11 @@ Rails.application.routes.draw do
   get     'login' => 'sessions#new'
   delete 'logout' => 'sessions#destroy'
 
+  namespace :api, defaults: { format: 'json' } do
+    namespace :v1 do
+      resources :notes, except: [:new, :edit]
+    end
+  end
+
   root 'notes#new'
 end
